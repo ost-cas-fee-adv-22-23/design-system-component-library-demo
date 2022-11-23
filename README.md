@@ -144,3 +144,15 @@ In this repository template, there is a system called ["semantic release"](https
 - for other commit types, see the angular format. by default semantic release only uses `feat` and `fix` (and breaking change) to create a new version, but you can configure it to use other commit types as well (see `.releaserc.json` file)
 
 Tools such as commitizen or commitlint can be used to enforce the commit message format.
+
+## Summary
+
+After the steps above we have created the following setup:
+
+- A react component library that is written in typescript
+- The component library is styled with tailwindcss
+- The component library is compiled with the typescript compiler to the ESM format
+- The resulting package has type definitions and a dist package that is directly accessible from the root package
+- The components can be coded and described in storybook
+- The component lib is automatically published to github package repository inside the organization (viewable in the repository under "packages")
+- The storybook is directly published to github pages inside the organization (link viewable in the repository under "environments")
