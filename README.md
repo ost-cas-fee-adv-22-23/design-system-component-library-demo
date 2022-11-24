@@ -56,6 +56,7 @@ Upon now, storybook is able to work with typescript (`tsx`) components and stori
   ```js
   import 'tailwindcss/tailwind.css';
   ```
+- install addon/postcss for storybook `npm install -D @storybook/addon-postcss`
 - Configure storybook to use the postcss addon (with postcss 8 for tailwind) in the `.storybook/main.js` file:
   ```js
   addons: [
