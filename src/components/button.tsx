@@ -1,6 +1,7 @@
 import React, {
   AnchorHTMLAttributes,
   ButtonHTMLAttributes,
+  Children,
   FC,
   ReactNode,
 } from "react";
@@ -56,17 +57,29 @@ export const Button: FC<ButtonProps> = (props) => {
   const className = merge([
     "text-white",
     "rounded-lg",
-    "inline-flex flex-row",
+    "inline-flex flex-row items-center",
     "transition-all ease-in-out",
     colorMap[props.color],
     sizeMap[props.size],
   ]);
 
+  const content =
+    Children.count(props.children) === 1
+      ? props.children
+      : Children.map(props.children, (child, index) => {
+          if (index === Children.count(props.children) + 1) {
+            return child;
+          }
+
+          return <Label size="M">{props.children}</Label>;
+        });
+
   if (isLink(props)) {
     const { children, ...args } = props;
+
     return (
       <a className={className} {...args}>
-        <Label size="M">{children}</Label>
+        {content}
       </a>
     );
   }
@@ -76,7 +89,7 @@ export const Button: FC<ButtonProps> = (props) => {
 
     return (
       <button className={className} {...args}>
-        <Label size="M">{children}</Label>
+        {content}
       </button>
     );
   }

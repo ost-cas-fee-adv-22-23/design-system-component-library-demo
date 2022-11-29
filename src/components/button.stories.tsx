@@ -1,6 +1,7 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import React from "react";
 import { Button } from "./button";
+import { MumbleIcon } from "./icons/mumble";
 
 export default {
   title: "Components/Button",
@@ -27,7 +28,14 @@ export default {
 export const ButtonComponent: ComponentStory<typeof Button> = ({
   children,
   ...args
-}) => <Button {...args}>{children}</Button>;
+}) => (
+  <Button {...args}>
+    <>
+      {children}
+      {(args as any).icon && <MumbleIcon />}
+    </>
+  </Button>
+);
 
 ButtonComponent.storyName = "Button";
 
@@ -37,4 +45,5 @@ ButtonComponent.args = {
   children: "Button Label",
   as: "button",
   href: "#",
-};
+  icon: false,
+} as any;

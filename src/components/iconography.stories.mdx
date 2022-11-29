@@ -1,0 +1,20 @@
+import { Canvas, Meta, Story } from "@storybook/addon-docs";
+
+import { MumbleIcon } from "./icons/mumble";
+
+export const Template = (args) => (
+  <div style={{ color: args.color }}>
+    <MumbleIcon {...args} />
+  </div>
+);
+
+<Meta
+  title="Iconography"
+  component={MumbleIcon}
+  argTypes={{
+    size: { control: "text" },
+    color: { control: "color" },
+  }}
+/>
+
+<Story name="Iconography">{Template.bind({})}</Story>
