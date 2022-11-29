@@ -28,7 +28,24 @@ module.exports = {
       semibold: "600",
       bold: "700",
     },
-    extend: {},
+    extend: {
+      transitionDuration: {
+        DEFAULT: "350ms",
+        350: "350ms",
+      },
+      outlineWidth: {
+        3: "3px",
+      },
+
+      backgroundImage: {
+        "gradient-50-50":
+          "linear-gradient(90deg, var(--tw-gradient-from) 0%, var(--tw-gradient-to) 100%);",
+        "gradient-30-70":
+          "linear-gradient(90deg, var(--tw-gradient-from) -12.56%, var(--tw-gradient-to) 62.92%);",
+        "gradient-20-80":
+          "linear-gradient(90deg, var(--tw-gradient-from) -15.33%, var(--tw-gradient-to) 38.87%);",
+      },
+    },
   },
   plugins: [],
 };

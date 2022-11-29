@@ -34,6 +34,7 @@ ButtonComponent.storyName = "Button";
 ButtonComponent.args = {
   color: "Slate",
   size: "M",
-  children: "Hello World",
+  children: "Button Label",
   as: "button",
+  href: "#",
 };
