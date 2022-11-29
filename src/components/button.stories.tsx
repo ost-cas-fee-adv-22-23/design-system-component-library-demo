@@ -1,21 +1,39 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
-import React from 'react';
-import { Button, ButtonType } from './button';
+import { ComponentMeta, ComponentStory } from "@storybook/react";
+import React from "react";
+import { Button } from "./button";
 
 export default {
-  title: 'Example/Button',
+  title: "Components/Button",
   component: Button,
   argTypes: {
-    type: {
-      options: ['primary', 'secondary'],
-      control: { type: 'select' },
+    color: {
+      options: ["Slate", "Violet", "Gradient"],
+      control: { type: "select" },
+    },
+    size: {
+      options: ["M", "L"],
+      control: { type: "select" },
+    },
+    children: {
+      control: { type: "text" },
+    },
+    as: {
+      options: ["button", "link"],
+      control: { type: "radio" },
     },
   },
 } as ComponentMeta<typeof Button>;
 
-const Template: ComponentStory<typeof Button> = (args) => <Button {...args}>Hello World</Button>;
+export const ButtonComponent: ComponentStory<typeof Button> = ({
+  children,
+  ...args
+}) => <Button {...args}>{children}</Button>;
 
-export const ButtonComponent = Template.bind({});
+ButtonComponent.storyName = "Button";
+
 ButtonComponent.args = {
-  type: ButtonType.primary,
+  color: "Slate",
+  size: "M",
+  children: "Hello World",
+  as: "button",
 };
