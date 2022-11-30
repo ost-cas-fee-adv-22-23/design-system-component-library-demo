@@ -25,7 +25,10 @@ const classMap: Record<Props["size"], string> = {
 
 export const Label: FC<Props> = (props) => {
   const { children, as: Tag = "label", size = "M", ...rest } = props;
-  const className = merge(["font-sans text-current", classMap[size]]);
+  const className = merge([
+    "font-sans text-current inline-block",
+    classMap[size],
+  ]);
 
   return (
     <Tag className={className} {...rest}>
