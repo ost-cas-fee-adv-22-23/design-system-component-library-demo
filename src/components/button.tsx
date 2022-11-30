@@ -17,7 +17,7 @@ type BaseButtonProps = {
   color: "Slate" | "Violet" | "Gradient";
   size: "M" | "L";
   children: ReactNode;
-  as: "button" | "link";
+  as: "button" | "a";
 };
 
 /**
@@ -25,16 +25,18 @@ type BaseButtonProps = {
  * This is called a Intersection Type. This means, that `HTMLButtonProps` is a combination
  * of `BaseButtonProps` and the native attributes.
  */
-type HTMLButtonProps = BaseButtonProps &
-  ButtonHTMLAttributes<HTMLButtonElement>;
+type HTMLButtonProps = BaseButtonProps & {
+  as: "button";
+} & ButtonHTMLAttributes<HTMLButtonElement>;
 
 /**
  * If the button is rendered as a HTML anchor, all native attributes should be accepted.
  * This is called a Intersection Type. This means, that `HTMLButtonProps` is a combination
  * of `BaseButtonProps` and the native attributes.
  */
-type LinkButtonProps = BaseButtonProps &
-  AnchorHTMLAttributes<HTMLAnchorElement>;
+type LinkButtonProps = BaseButtonProps & {
+  as: "a";
+} & AnchorHTMLAttributes<HTMLAnchorElement>;
 
 /**
  * Because a button can be either of the above, we use a Union Type. This means,
@@ -62,7 +64,7 @@ const sizeMap: Record<BaseButtonProps["size"], string> = {
  * criteria is met.
  */
 const isLink = (props: ButtonProps): props is LinkButtonProps =>
-  props.as === "link";
+  props.as === "a";
 
 const isButton = (props: ButtonProps): props is HTMLButtonProps =>
   props.as === "button";

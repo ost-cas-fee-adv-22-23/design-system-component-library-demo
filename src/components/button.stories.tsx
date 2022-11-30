@@ -19,7 +19,7 @@ export default {
       control: { type: "text" },
     },
     as: {
-      options: ["button", "link"],
+      options: ["button", "a"],
       control: { type: "radio" },
     },
   },
@@ -36,7 +36,7 @@ ButtonComponent.args = {
   color: "Slate",
   size: "M",
   children: "Button Label",
-  as: "button",
+  as: "a",
   href: "#",
 };
 
@@ -56,6 +56,6 @@ ButtonWithIconComponent.args = {
   color: "Slate",
   size: "M",
   children: "Button Label",
-  as: "button",
+  as: "a",
   href: "#",
 };
