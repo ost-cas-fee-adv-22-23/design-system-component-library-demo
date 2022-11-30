@@ -1,6 +1,10 @@
 import React, { FC, ReactNode } from "react";
 import { merge } from "../merge";
 
+/**
+ * We want to separate the visual hierarchy (`level` 1 – 4) and the semantic
+ * hierarchy (`as` h1 – h6).
+ */
 type HeadingProps = {
   as?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
   level: "1" | "2" | "3" | "4";
@@ -14,10 +18,15 @@ const classMap = {
   "4": "text-2xl leading-tight font-semibold",
 };
 
+/**
+ * The only thing noteworthy here is "as: Tag = `h${level}`".
+ * We'd like a default semantic HTML element and set it depending
+ * level of visual hierarchy, but it's fully overridable.
+ */
 export const Heading: FC<HeadingProps> = ({
   children,
   level = "1",
-  as: Tag = "h1",
+  as: Tag = `h${level}`,
 }) => (
   <Tag className={merge(["font-sans text-current", classMap[level]])}>
     {children}
