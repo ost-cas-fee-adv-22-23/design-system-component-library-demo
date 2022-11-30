@@ -6,15 +6,6 @@ import { Label } from "./label";
 export default {
   title: "Components/Label",
   component: Label,
-  argTypes: {
-    children: {
-      control: { type: "text" },
-    },
-    as: {
-      options: ["h1", "h2", "h3", "h4", "h5", "h6"],
-      control: { type: "select" },
-    },
-  },
 } as ComponentMeta<typeof Label>;
 export const LabelComponent: ComponentStory<typeof Label> = ({
   children,
@@ -25,7 +16,7 @@ LabelComponent.storyName = "Label";
 
 LabelComponent.argTypes = {
   as: {
-    options: ["span"],
+    options: ["span", "label"],
     control: { type: "select" },
   },
   size: {
@@ -33,6 +24,9 @@ LabelComponent.argTypes = {
     control: { type: "select" },
   },
   children: {
+    control: { type: "text" },
+  },
+  htmlFor: {
     control: { type: "text" },
   },
 };

@@ -28,14 +28,7 @@ export default {
 export const ButtonComponent: ComponentStory<typeof Button> = ({
   children,
   ...args
-}) => (
-  <Button {...args}>
-    <>
-      {children}
-      {(args as any).icon && <MumbleIcon />}
-    </>
-  </Button>
-);
+}) => <Button {...args}>{children}</Button>;
 
 ButtonComponent.storyName = "Button";
 
@@ -45,5 +38,24 @@ ButtonComponent.args = {
   children: "Button Label",
   as: "button",
   href: "#",
-  icon: false,
-} as any;
+};
+
+export const ButtonWithIconComponent: ComponentStory<typeof Button> = ({
+  children,
+  ...args
+}) => (
+  <Button {...args}>
+    {children}
+    <MumbleIcon />
+  </Button>
+);
+
+ButtonWithIconComponent.storyName = "Button with Icon";
+
+ButtonWithIconComponent.args = {
+  color: "Slate",
+  size: "M",
+  children: "Button Label",
+  as: "button",
+  href: "#",
+};

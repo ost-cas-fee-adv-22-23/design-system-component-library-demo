@@ -14,7 +14,7 @@ export default {
       control: { type: "text" },
     },
     as: {
-      options: ["h1", "h2", "h3", "h4", "h5", "h6"],
+      options: [undefined, "h1", "h2", "h3", "h4", "h5", "h6"],
       control: { type: "select" },
     },
   },
@@ -29,6 +29,6 @@ HeadingComponent.storyName = "Heading";
 
 HeadingComponent.args = {
   level: "1",
-  as: "h1",
+  as: undefined,
   children: "The quick brown fox jumps over the lazy dog",
 };
