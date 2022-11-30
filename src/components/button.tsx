@@ -8,6 +8,11 @@ import React, {
 import { merge } from "../merge";
 import { Label } from "./label";
 
+/**
+ * These are shared props between all buttons, no matter whether they are a semantic
+ * anchor (link) or button. Both should look the same, have the same colors and the
+ * same sizes.
+ */
 type BaseButtonProps = {
   color: "Slate" | "Violet" | "Gradient";
   size: "M" | "L";
@@ -15,22 +20,26 @@ type BaseButtonProps = {
   as: "button" | "link";
 };
 
+/**
+ * If the button is rendered as a HTML button, all native attributes should be accepted.
+ * This is called a Intersection Type. This means, that `HTMLButtonProps` is a combination
+ * of `BaseButtonProps` and the native attributes.
+ */
 type HTMLButtonProps = BaseButtonProps &
-  Omit<
-    ButtonHTMLAttributes<HTMLButtonElement>,
-    keyof BaseButtonProps & {
-      as?: "button";
-    }
-  >;
+  ButtonHTMLAttributes<HTMLButtonElement>;
 
+/**
+ * If the button is rendered as a HTML anchor, all native attributes should be accepted.
+ * This is called a Intersection Type. This means, that `HTMLButtonProps` is a combination
+ * of `BaseButtonProps` and the native attributes.
+ */
 type LinkButtonProps = BaseButtonProps &
-  Omit<
-    AnchorHTMLAttributes<HTMLAnchorElement>,
-    keyof BaseButtonProps & {
-      as: "link";
-    }
-  >;
+  AnchorHTMLAttributes<HTMLAnchorElement>;
 
+/**
+ * Because a button can be either of the above, we use a Union Type. This means,
+ * `ButtonProps` can be either of theses.
+ */
 type ButtonProps = HTMLButtonProps | LinkButtonProps;
 
 const colorMap: Record<BaseButtonProps["color"], string> = {
@@ -47,6 +56,11 @@ const sizeMap: Record<BaseButtonProps["size"], string> = {
   L: "px-6 py-4 gap-3",
 };
 
+/**
+ * This is called a type guard and is performed at runtime. But during development we can
+ * ensure that our props have the correct typing, e.g. LinkButtonProps, when a certain
+ * criteria is met.
+ */
 const isLink = (props: ButtonProps): props is LinkButtonProps =>
   props.as === "link";
 
@@ -63,16 +77,32 @@ export const Button: FC<ButtonProps> = (props) => {
     sizeMap[props.size],
   ]);
 
+  /**
+   * Before we do anything, we count the `children`. If it's only 1 and of type `string`,
+   * we'll wrap it in a `Label` and be done with it.
+   *
+   * If there are more, we only want to wrap the text elements in a `Label` but leave the rest.
+   * This way our SVG Icon will not be modified.
+   */
   const content =
-    Children.count(props.children) === 1
-      ? props.children
-      : Children.map(props.children, (child, index) => {
-          if (index === Children.count(props.children) + 1) {
-            return child;
-          }
+    Children.count(props.children) === 1 &&
+    typeof props.children === "string" ? (
+      <Label as="span" size="M">
+        {props.children}
+      </Label>
+    ) : (
+      Children.map(props.children, (child) => {
+        if (typeof child === "string") {
+          return (
+            <Label as="span" size="M">
+              {child}
+            </Label>
+          );
+        }
 
-          return <Label size="M">{props.children}</Label>;
-        });
+        return child;
+      })
+    );
 
   if (isLink(props)) {
     const { children, ...args } = props;
