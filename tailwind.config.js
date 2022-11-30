@@ -53,7 +53,7 @@ module.exports = {
     },
   },
   plugins: [
-    plugin(({ addUtilities, theme }) => {
+    plugin(({ addUtilities }) => {
       addUtilities({
         ".text-decoration-inherit": {
           textDecorationLine: "inherit",
