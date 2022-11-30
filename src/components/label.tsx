@@ -1,4 +1,4 @@
-import React, { FC, ReactNode } from "react";
+import React, { FC, LabelHTMLAttributes, ReactNode } from "react";
 import { merge } from "../merge";
 
 type BaseProps = {
@@ -9,12 +9,9 @@ type BaseProps = {
 
 type LabelProps = BaseProps & {
   as: "label";
-  htmlFor?: string;
-};
+} & LabelHTMLAttributes<HTMLLabelElement>;
 
 type Props = BaseProps | LabelProps;
-
-const isLabel = (props: Props): props is LabelProps => props.as === "label";
 
 const classMap: Record<Props["size"], string> = {
   S: "text-xs leading-none font-semibold",
@@ -26,7 +23,7 @@ const classMap: Record<Props["size"], string> = {
 export const Label: FC<Props> = (props) => {
   const { children, as: Tag = "label", size = "M", ...rest } = props;
   const className = merge([
-    "font-sans text-current inline-block",
+    "font-sans text-current text-decoration-inherit decoration-inherit underline-offset-inherit inline-block",
     classMap[size],
   ]);
 
