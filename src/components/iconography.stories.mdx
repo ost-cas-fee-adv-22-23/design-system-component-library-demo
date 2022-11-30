@@ -1,20 +1,39 @@
-import { Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Meta, Title, IconGallery, IconItem } from "@storybook/addon-docs";
 
 import { MumbleIcon } from "./icons/mumble";
-
-export const Template = (args) => (
-  <div style={{ color: args.color }}>
-    <MumbleIcon {...args} />
-  </div>
-);
+import { HeartOutlineIcon } from "./icons/heart-outline";
+import { HeartIcon } from "./icons/heart";
+import { ChatOutlineIcon } from "./icons/chat-outline";
+import { ChatIcon } from "./icons/chat";
+import { ShareIcon } from "./icons/share";
 
 <Meta
   title="Iconography"
-  component={MumbleIcon}
   argTypes={{
     size: { control: "text" },
     color: { control: "color" },
   }}
 />
 
-<Story name="Iconography">{Template.bind({})}</Story>
+# Iconography
+
+<IconGallery>
+  <IconItem>
+    <MumbleIcon size="48" />
+  </IconItem>
+  <IconItem>
+    <HeartOutlineIcon size="48" />
+  </IconItem>
+  <IconItem>
+    <HeartIcon size="48" />
+  </IconItem>
+  <IconItem>
+    <ChatOutlineIcon size="48" />
+  </IconItem>
+  <IconItem>
+    <ChatIcon size="48" />
+  </IconItem>
+  <IconItem>
+    <ShareIcon size="48" />
+  </IconItem>
+</IconGallery>
