@@ -47,6 +47,9 @@ module.exports = {
         "gradient-20-80":
           "linear-gradient(90deg, var(--tw-gradient-from) -15.33%, var(--tw-gradient-to) 38.87%);",
       },
+      backgroundSize: {
+        "200%": "200%",
+      },
       textUnderlineOffset: {
         inherit: "inherit",
       },
