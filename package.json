@@ -16,7 +16,7 @@
     }
   },
   "scripts": {
-    "build": "rm -rf ./dist && ctix create -w -r -p ./tsconfig.json && tsc",
+    "build": "rm -rf ./dist && ctix create -w -r -p ./tsconfig.json && tsc && cp tailwind.config.js dist",
     "build-storybook": "build-storybook",
     "storybook": "start-storybook -p 6006"
   },
