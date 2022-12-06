@@ -18,6 +18,5 @@
     "module": "esnext",
     "target": "esnext"
   },
-  "rootDirs": ["./src"],
   "include": ["src/**/*"]
 }
