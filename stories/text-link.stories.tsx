@@ -1,7 +1,7 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 
 import React from "react";
-import { TextLink } from "./text-link";
+import { TextLink } from "../src/components/text-link";
 
 export default {
   title: "Components/TextLink",

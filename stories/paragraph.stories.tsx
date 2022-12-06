@@ -1,7 +1,7 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 
 import React from "react";
-import { Paragraph } from "./paragraph";
+import { Paragraph } from "../src/components/paragraph";
 
 export default {
   title: "Components/Paragraph",

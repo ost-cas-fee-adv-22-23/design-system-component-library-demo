@@ -1,0 +1,39 @@
+import { Meta, Title, IconGallery, IconItem } from "@storybook/addon-docs";
+
+import { MumbleIcon } from "../src/components/icons/mumble";
+import { HeartOutlineIcon } from "../src/components/icons/heart-outline";
+import { HeartIcon } from "../src/components/icons/heart";
+import { ChatOutlineIcon } from "../src/components/icons/chat-outline";
+import { ChatIcon } from "../src/components/icons/chat";
+import { ShareIcon } from "../src/components/icons/share";
+
+<Meta
+  title="Iconography"
+  argTypes={{
+    size: { control: "text" },
+    color: { control: "color" },
+  }}
+/>
+
+# Iconography
+
+<IconGallery>
+  <IconItem name="MumbleIcon">
+    <MumbleIcon size="48" />
+  </IconItem>
+  <IconItem name="HeartOutlineIcon">
+    <HeartOutlineIcon size="48" />
+  </IconItem>
+  <IconItem name="HeartIcon">
+    <HeartIcon size="48" />
+  </IconItem>
+  <IconItem name="ChatOutlineIcon">
+    <ChatOutlineIcon size="48" />
+  </IconItem>
+  <IconItem name="ChatIcon">
+    <ChatIcon size="48" />
+  </IconItem>
+  <IconItem name="ShareIcon">
+    <ShareIcon size="48" />
+  </IconItem>
+</IconGallery>

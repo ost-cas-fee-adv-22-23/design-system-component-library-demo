@@ -1,8 +1,8 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import { MumbleIcon } from "./icons/mumble";
+import { MumbleIcon } from "../src/components/icons/mumble";
 
 import React, { useEffect, useState } from "react";
-import { Input } from "./input";
+import { Input } from "../src/components/input";
 
 export default {
   title: "Components/Input",

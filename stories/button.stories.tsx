@@ -1,7 +1,7 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import React from "react";
-import { Button } from "./button";
-import { MumbleIcon } from "./icons/mumble";
+import { Button } from "../src/components/button";
+import { MumbleIcon } from "../src/components/icons/mumble";
 
 export default {
   title: "Components/Button",

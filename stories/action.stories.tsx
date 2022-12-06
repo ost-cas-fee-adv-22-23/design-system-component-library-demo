@@ -1,13 +1,13 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 
 import React, { useState, useEffect } from "react";
-import { Action } from "./action";
+import { Action } from "../src/components/action";
 
-import { MumbleIcon } from "./icons/mumble";
-import { HeartIcon } from "./icons/heart";
-import { HeartOutlineIcon } from "./icons/heart-outline";
-import { ChatIcon } from "./icons/chat";
-import { ChatOutlineIcon } from "./icons/chat-outline";
+import { MumbleIcon } from "../src/components/icons/mumble";
+import { HeartIcon } from "../src/components/icons/heart";
+import { HeartOutlineIcon } from "../src/components/icons/heart-outline";
+import { ChatIcon } from "../src/components/icons/chat";
+import { ChatOutlineIcon } from "../src/components/icons/chat-outline";
 
 export default {
   title: "Components/Action",

@@ -1,9 +1,9 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 
 import React from "react";
-import { Clipboard } from "./clipboard";
+import { Clipboard } from "../src/components/clipboard";
 
-import { MumbleIcon } from "./icons/mumble";
+import { MumbleIcon } from "../src/components/icons/mumble";
 
 export default {
   title: "Components/Clipboard",
