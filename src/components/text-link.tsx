@@ -8,6 +8,17 @@ type Props = {
 };
 
 export const TextLink: FC<Props> = ({ href, children }) => {
+  /**
+   * This is a "brilliant" hack making use of the Houdini API
+   * to register the propert --offset with a numeric value. Because
+   * it's numeric, it can be animated! With the transitions below and
+   * in the tailwind config, this results in an animated text-decoration-offset.
+   * Although actually it's not the property `text-decoration-offset` that is
+   * animated, but the defined property here.
+   *
+   * In all honesty, I wouldn't use this in a productive environment but it was
+   * fun here.
+   */
   useEffect(() => {
     if (typeof window !== "undefined") {
       try {
