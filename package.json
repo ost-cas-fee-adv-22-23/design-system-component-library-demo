@@ -7,7 +7,8 @@
     "tag": "latest"
   },
   "files": [
-    "dist"
+    "dist",
+    "tailwind.config.js"
   ],
   "types": "dist/types/index.d.ts",
   "exports": {
