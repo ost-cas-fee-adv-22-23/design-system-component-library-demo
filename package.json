@@ -14,10 +14,11 @@
   "exports": {
     ".": {
       "import": "./dist/index.js"
-    }
+    },
+    "./tailwind": "./tailwind.config.js"
   },
   "scripts": {
-    "build": "rm -rf ./dist && ctix create -w -r -p ./tsconfig.json && tsc && cp tailwind.config.js dist",
+    "build": "rm -rf ./dist && ctix create -w -r -p ./tsconfig.json && tsc",
     "build-storybook": "build-storybook",
     "storybook": "start-storybook -p 6006"
   },
