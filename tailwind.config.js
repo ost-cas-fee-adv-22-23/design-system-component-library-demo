@@ -38,7 +38,6 @@ module.exports = {
       outlineWidth: {
         3: "3px",
       },
-
       backgroundImage: {
         "gradient-50-50":
           "linear-gradient(90deg, var(--tw-gradient-from) 0%, var(--tw-gradient-to) 100%);",
@@ -52,6 +51,7 @@ module.exports = {
       },
       textUnderlineOffset: {
         inherit: "inherit",
+        animatable: "var(--offset, 2px);",
       },
     },
   },
@@ -60,6 +60,13 @@ module.exports = {
       addUtilities({
         ".text-decoration-inherit": {
           textDecorationLine: "inherit",
+        },
+        ".underline-magic-2": {
+          "--offset": "2px",
+        },
+
+        ".underline-magic-4": {
+          "--offset": "4px",
         },
       });
     }),
