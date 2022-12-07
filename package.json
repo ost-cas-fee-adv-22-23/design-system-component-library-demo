@@ -18,7 +18,7 @@
     "./tailwind": "./tailwind.config.js"
   },
   "scripts": {
-    "build": "rm -rf ./dist && ctix create -w -r -p ./tsconfig.json && tsc",
+    "build": "rm -rf ./dist && ctix create --overwrite --useRootDir --noBackup --project ./tsconfig.json && rm ./index.ts && tsc",
     "build-storybook": "build-storybook",
     "storybook": "start-storybook -p 6006"
   },
