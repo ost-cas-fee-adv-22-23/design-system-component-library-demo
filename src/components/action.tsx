@@ -76,7 +76,12 @@ export const Action: FC<Props> = ({
         }
 
         return (
-          <span className={iconColorMap[color][active ? "active" : "inactive"]}>
+          <span
+            className={merge([
+              "transition-colors",
+              iconColorMap[color][active ? "active" : "inactive"],
+            ])}
+          >
             {child}
           </span>
         );
