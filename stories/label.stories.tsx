@@ -1,38 +1,35 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react";
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import React from "react";
-import { Label } from "../src/components/label";
+import React from 'react';
+import { Label } from '../src/components/label';
 
 export default {
-  title: "Components/Label",
+  title: 'Components/Label',
   component: Label,
 } as ComponentMeta<typeof Label>;
-export const LabelComponent: ComponentStory<typeof Label> = ({
-  children,
-  ...args
-}) => <Label {...args}>{children}</Label>;
+export const LabelComponent: ComponentStory<typeof Label> = ({ children, ...args }) => <Label {...args}>{children}</Label>;
 
-LabelComponent.storyName = "Label";
+LabelComponent.storyName = 'Label';
 
 LabelComponent.argTypes = {
   as: {
-    options: ["span", "label"],
-    control: { type: "select" },
+    options: ['span', 'label'],
+    control: { type: 'select' },
   },
   size: {
-    options: ["S", "M", "L", "XL"],
-    control: { type: "select" },
+    options: ['S', 'M', 'L', 'XL'],
+    control: { type: 'select' },
   },
   children: {
-    control: { type: "text" },
+    control: { type: 'text' },
   },
   htmlFor: {
-    control: { type: "text" },
+    control: { type: 'text' },
   },
 };
 
 LabelComponent.args = {
-  as: "span",
-  size: "L",
-  children: "The quick brown fox jumps over the lazy dog",
+  as: 'span',
+  size: 'L',
+  children: 'The quick brown fox jumps over the lazy dog',
 };

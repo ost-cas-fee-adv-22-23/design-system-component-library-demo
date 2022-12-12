@@ -1,45 +1,42 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react";
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import React, { useState, useEffect } from "react";
-import { Action } from "../src/components/action";
+import React, { useState, useEffect } from 'react';
+import { Action } from '../src/components/action';
 
-import { MumbleIcon } from "../src/components/icons/mumble";
-import { HeartIcon } from "../src/components/icons/heart";
-import { HeartOutlineIcon } from "../src/components/icons/heart-outline";
-import { ChatIcon } from "../src/components/icons/chat";
-import { ChatOutlineIcon } from "../src/components/icons/chat-outline";
+import { MumbleIcon } from '../src/components/icons/mumble';
+import { HeartIcon } from '../src/components/icons/heart';
+import { HeartOutlineIcon } from '../src/components/icons/heart-outline';
+import { ChatIcon } from '../src/components/icons/chat';
+import { ChatOutlineIcon } from '../src/components/icons/chat-outline';
 
 export default {
-  title: "Components/Action",
+  title: 'Components/Action',
   component: Action,
   argTypes: {
     children: {
-      control: { type: "text" },
+      control: { type: 'text' },
     },
     color: {
-      options: ["Pink", "Violet"],
-      control: { type: "select" },
+      options: ['Pink', 'Violet'],
+      control: { type: 'select' },
     },
-    active: { options: [true, false], control: { type: "radio" } },
+    active: { options: [true, false], control: { type: 'radio' } },
   },
 } as ComponentMeta<typeof Action>;
 
-export const ActionComponent: ComponentStory<typeof Action> = ({
-  children,
-  ...args
-}) => (
+export const ActionComponent: ComponentStory<typeof Action> = ({ children, ...args }) => (
   <Action {...args}>
     <MumbleIcon />
     {children}
   </Action>
 );
 
-ActionComponent.storyName = "Action";
+ActionComponent.storyName = 'Action';
 
 ActionComponent.args = {
   active: false,
-  color: "Pink",
-  children: "Action",
+  color: 'Pink',
+  children: 'Action',
 };
 
 export const LikeActionComponent: ComponentStory<any> = ({ numberOfLikes }) => {
@@ -62,12 +59,12 @@ export const LikeActionComponent: ComponentStory<any> = ({ numberOfLikes }) => {
   return (
     <Action color="Pink" active={liked} onClick={() => setLiked((l) => !l)}>
       {liked ? <HeartIcon /> : <HeartOutlineIcon />}
-      {likes > 0 ? `${likes} Likes` : liked ? "Liked" : "Like"}
+      {likes > 0 ? `${likes} Likes` : liked ? 'Liked' : 'Like'}
     </Action>
   );
 };
 
-LikeActionComponent.storyName = "Like Action";
+LikeActionComponent.storyName = 'Like Action';
 LikeActionComponent.args = { numberOfLikes: 0 } as any;
 LikeActionComponent.argTypes = {
   onClick: {
@@ -83,13 +80,11 @@ LikeActionComponent.argTypes = {
     table: { disable: true },
   },
   numberOfLikes: {
-    control: { type: "number" },
+    control: { type: 'number' },
   },
 } as any;
 
-export const ReplyActionComponent: ComponentStory<any> = ({
-  numberOfReplies,
-}) => {
+export const ReplyActionComponent: ComponentStory<any> = ({ numberOfReplies }) => {
   const [replied, setReplied] = useState(false);
   const [replies, setReplies] = useState(0);
 
@@ -107,18 +102,14 @@ export const ReplyActionComponent: ComponentStory<any> = ({
   }, [replied]);
 
   return (
-    <Action
-      color="Violet"
-      active={replied}
-      onClick={() => setReplied((l) => !l)}
-    >
+    <Action color="Violet" active={replied} onClick={() => setReplied((l) => !l)}>
       {replies > 0 ? <ChatIcon /> : <ChatOutlineIcon />}
-      {replies > 0 ? `${replies} Comments` : "Comment"}
+      {replies > 0 ? `${replies} Comments` : 'Comment'}
     </Action>
   );
 };
 
-ReplyActionComponent.storyName = "Reply Action";
+ReplyActionComponent.storyName = 'Reply Action';
 ReplyActionComponent.args = { numberOfReplies: 0 } as any;
 ReplyActionComponent.argTypes = {
   onClick: {
@@ -134,6 +125,6 @@ ReplyActionComponent.argTypes = {
     table: { disable: true },
   },
   numberOfReplies: {
-    control: { type: "number" },
+    control: { type: 'number' },
   },
 } as any;

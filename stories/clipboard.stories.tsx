@@ -1,19 +1,19 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react";
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import React from "react";
-import { Clipboard } from "../src/components/clipboard";
+import React from 'react';
+import { Clipboard } from '../src/components/clipboard';
 
-import { MumbleIcon } from "../src/components/icons/mumble";
+import { MumbleIcon } from '../src/components/icons/mumble';
 
 export default {
-  title: "Components/Clipboard",
+  title: 'Components/Clipboard',
   component: Clipboard,
   argTypes: {
     value: {
-      control: { type: "text" },
+      control: { type: 'text' },
     },
     delay: {
-      control: { type: "number" },
+      control: { type: 'number' },
     },
   },
 } as ComponentMeta<typeof Clipboard>;
@@ -24,9 +24,9 @@ export const ClipboardComponent: ComponentStory<any> = (args) => (
   </Clipboard>
 );
 
-ClipboardComponent.storyName = "Clipboard";
+ClipboardComponent.storyName = 'Clipboard';
 
 ClipboardComponent.args = {
-  value: "Mumble",
+  value: 'Mumble',
   delay: 1000,
 };
