@@ -22,13 +22,17 @@ export const TextLink: FC<Props> = ({ href, children }) => {
   useEffect(() => {
     if (typeof window !== 'undefined') {
       try {
+        // We'll allow this because we'd never actually do it in production 😂
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         (window.CSS as any).registerProperty({
           name: '--offset',
           syntax: '<length>',
           inherits: false,
           initialValue: 0,
         });
-      } catch {}
+      } catch (error) {
+        console.error(error);
+      }
     }
   }, []);
 

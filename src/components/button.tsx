@@ -99,20 +99,16 @@ export const Button: FC<ButtonProps> = (props) => {
     );
 
   if (isLink(props)) {
-    const { children, ...args } = props;
-
     return (
-      <a className={className} {...args}>
+      <a className={className} {...props}>
         {content}
       </a>
     );
   }
 
   if (isButton(props)) {
-    const { children, ...args } = props;
-
     return (
-      <button className={className} {...args}>
+      <button className={className} {...props}>
         {content}
       </button>
     );

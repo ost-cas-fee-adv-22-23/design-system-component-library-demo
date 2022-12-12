@@ -24,5 +24,7 @@ const classMap = {
  * level of visual hierarchy, but it's fully overridable.
  */
 export const Heading: FC<HeadingProps> = ({ children, level = '1', as: Tag = `h${level}` }) => (
+  // We explicitly allow this, since eslint doesn't quite get that we're using a native element here.
+  // eslint-disable-next-line react/forbid-component-props
   <Tag className={merge(['font-sans text-current', classMap[level]])}>{children}</Tag>
 );

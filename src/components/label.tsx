@@ -28,10 +28,10 @@ export const Label: FC<Props> = (props) => {
   ]);
 
   return (
+    // We explicitly allow this, since eslint doesn't quite get that we're using a native element here.
+    // eslint-disable-next-line react/forbid-component-props
     <Tag className={className} {...rest}>
       {children}
     </Tag>
   );
-
-  return <Tag className={className}>{children}</Tag>;
 };
