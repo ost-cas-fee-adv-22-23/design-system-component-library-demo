@@ -2,7 +2,7 @@ const plugin = require('tailwindcss/plugin');
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['./src/**/*.{ts,tsx,mdx}'],
+  content: ['./src/**/*.{ts,tsx,mdx}', './stories/**/*.{ts,tsx,mdx}'],
   theme: {
     fontFamily: {
       sans: ['"Poppins"', 'sans-serif'],
