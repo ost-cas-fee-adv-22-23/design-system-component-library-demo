@@ -23,7 +23,7 @@ const classMap: Record<Props['size'], string> = {
 export const Label: FC<Props> = (props) => {
   const { children, as: Tag = 'label', size = 'M', ...rest } = props;
   const className = merge([
-    'font-sans text-current text-decoration-inherit decoration-inherit underline-offset-inherit inline-block',
+    'font-sans text-current text-decoration-inherit decoration-inherit underline-offset-inherit inline-block cursor-inherit',
     classMap[size],
   ]);
 
