@@ -1,1 +1,1 @@
-export const merge = (classes: string[]) => classes.filter(Boolean).join(" ");
+export const merge = (classes: string[]) => classes.filter(Boolean).join(' ');

@@ -1,6 +1,6 @@
-import React, { FC, ReactNode, useEffect } from "react";
-import { merge } from "../merge";
-import { Label } from "./label";
+import React, { FC, ReactNode, useEffect } from 'react';
+import { merge } from '../merge';
+import { Label } from './label';
 
 type Props = {
   href: string;
@@ -20,11 +20,11 @@ export const TextLink: FC<Props> = ({ href, children }) => {
    * fun here.
    */
   useEffect(() => {
-    if (typeof window !== "undefined") {
+    if (typeof window !== 'undefined') {
       try {
         (window.CSS as any).registerProperty({
-          name: "--offset",
-          syntax: "<length>",
+          name: '--offset',
+          syntax: '<length>',
           inherits: false,
           initialValue: 0,
         });
@@ -37,9 +37,9 @@ export const TextLink: FC<Props> = ({ href, children }) => {
       <a
         href={href}
         className={merge([
-          "text-violet-600 transform-cpu",
-          "underline decoration-current hover:decoration-violet-200",
-          "underline-offset-animatable transition-[--offset] underline-magic-2 hover:underline-magic-4",
+          'text-violet-600 transform-cpu',
+          'underline decoration-current hover:decoration-violet-200',
+          'underline-offset-animatable transition-[--offset] underline-magic-2 hover:underline-magic-4',
         ])}
       >
         <Label size="S" as="span">
