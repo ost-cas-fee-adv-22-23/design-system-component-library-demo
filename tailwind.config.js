@@ -31,6 +31,9 @@ module.exports = {
       bold: '700',
     },
     extend: {
+      borderWidth: {
+        6: '6px',
+      },
       cursor: { inherit: 'inherit' },
       transitionDuration: {
         DEFAULT: '350ms',
