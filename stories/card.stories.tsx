@@ -1,17 +1,22 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import React from 'react';
+import { Action } from '../src/components/action';
+import { Avatar } from '../src/components/avatar';
+import { Button } from '../src/components/button';
 import { Card } from '../src/components/card';
-import { Stack } from '../src/components/stack';
+import { Clipboard } from '../src/components/clipboard';
+import { Heading } from '../src/components/heading';
+import { AirplaneIcon } from '../src/components/icons/airplane';
+import { ChatOutlineIcon } from '../src/components/icons/chat-outline';
+import { HeartOutlineIcon } from '../src/components/icons/heart-outline';
+import { MumbleIcon } from '../src/components/icons/mumble';
+import { UploadIcon } from '../src/components/icons/upload';
 import { Label } from '../src/components/label';
 import { Link } from '../src/components/link';
 import { Paragraph } from '../src/components/paragraph';
-import { MumbleIcon } from '../src/components/icons/mumble';
-import { Clipboard } from '../src/components/clipboard';
-import { Action } from '../src/components/action';
-import { ChatOutlineIcon } from '../src/components/icons/chat-outline';
-import { HeartOutlineIcon } from '../src/components/icons/heart-outline';
-import { Avatar } from '../src/components/avatar';
+import { Stack } from '../src/components/stack';
+import { TextField } from '../src/components/text-field';
 
 export default {
   title: 'Components/Card',
@@ -27,7 +32,7 @@ export default {
   },
 } as ComponentMeta<typeof Card>;
 
-export const CardComponent: ComponentStory<typeof Card> = (args) => (
+export const MumbleCardComponent: ComponentStory<typeof Card> = (args) => (
   <div className="bg-slate-100 p-8">
     <div className="w-[615px]">
       <Card {...args}>
@@ -79,5 +84,37 @@ export const CardComponent: ComponentStory<typeof Card> = (args) => (
   </div>
 );
 
-CardComponent.storyName = 'Mumble Card';
-CardComponent.args = { rounded: true };
+MumbleCardComponent.storyName = 'Mumble Card';
+MumbleCardComponent.args = { rounded: true };
+
+export const WriteCardComponent: ComponentStory<typeof Card> = (args) => (
+  <div className="bg-slate-100 p-8">
+    <div className="w-[680px]">
+      <Card {...args}>
+        <Stack direction="col" spacing="S">
+          <Heading as="h2" level="4">
+            Hey, was gibt&apos;s neues?
+          </Heading>
+          <TextField
+            value=""
+            placeholder="Deine Meinung zählt!"
+            onChange={(e) => {
+              console.log(e.currentTarget.value);
+            }}
+          />
+          <Stack direction="row" spacing="S">
+            <Button color="Slate" size="M" as="button" layout="Block">
+              Bild hochladen <UploadIcon />
+            </Button>
+            <Button color="Violet" size="M" as="button" layout="Block">
+              Absenden <AirplaneIcon />
+            </Button>
+          </Stack>
+        </Stack>
+      </Card>
+    </div>
+  </div>
+);
+
+WriteCardComponent.storyName = 'Write Card';
+WriteCardComponent.args = { rounded: true };
