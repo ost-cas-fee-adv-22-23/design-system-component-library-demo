@@ -7,6 +7,10 @@ export default {
   title: 'Components/Button',
   component: Button,
   argTypes: {
+    layout: {
+      options: ['Default', 'Block'],
+      control: { type: 'select' },
+    },
     color: {
       options: ['Slate', 'Violet', 'Gradient'],
       control: { type: 'select' },
@@ -37,6 +41,7 @@ ButtonComponent.args = {
   children: 'Button Label',
   as: 'a',
   href: '#',
+  layout: 'Default',
 };
 
 export const ButtonWithIconComponent: ComponentStory<typeof Button> = ({ children, ...args }) => (
@@ -54,4 +59,5 @@ ButtonWithIconComponent.args = {
   children: 'Button Label',
   as: 'a',
   href: '#',
+  layout: 'Default',
 };

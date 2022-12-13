@@ -10,6 +10,7 @@ import { Label } from './label';
 type BaseButtonProps = {
   color: 'Slate' | 'Violet' | 'Gradient';
   size: 'M' | 'L';
+  layout?: 'Default' | 'Block';
   children: ReactNode;
   as: 'button' | 'a';
 };
@@ -63,11 +64,14 @@ const isButton = (props: ButtonProps): props is HTMLButtonProps => props.as === 
 
 export const Button: FC<ButtonProps> = (props) => {
   const className = merge([
+    'justify-center',
+    'text-center',
     'will-change-auto',
     'text-white',
     'rounded-lg',
     'inline-flex flex-row items-center',
     'transition-all ease-in-out',
+    props.layout === 'Block' ? 'w-full' : '',
     colorMap[props.color],
     sizeMap[props.size],
   ]);
