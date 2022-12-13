@@ -9,5 +9,5 @@ type Props = {
 
 export const Card: FC<Props> = ({ children, as: Tag = 'div', rounded = false }) => (
   // eslint-disable-next-line react/forbid-component-props
-  <Tag className={merge(['bg-white px-12 py-8', rounded ? 'rounded-2xl' : ''])}>{children}</Tag>
+  <Tag className={merge(['bg-white px-12 py-8 relative', rounded ? 'rounded-2xl' : ''])}>{children}</Tag>
 );

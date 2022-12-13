@@ -11,6 +11,7 @@ import { Clipboard } from '../src/components/clipboard';
 import { Action } from '../src/components/action';
 import { ChatOutlineIcon } from '../src/components/icons/chat-outline';
 import { HeartOutlineIcon } from '../src/components/icons/heart-outline';
+import { Avatar } from '../src/components/avatar';
 
 export default {
   title: 'Components/Card',
@@ -28,8 +29,15 @@ export default {
 
 export const CardComponent: ComponentStory<typeof Card> = (args) => (
   <div className="bg-slate-100 p-8">
-    <div className="w-1/2">
+    <div className="w-[615px]">
       <Card {...args}>
+        <div className="absolute -left-8 top-4">
+          <Avatar
+            size="M"
+            src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx89&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+            alt="Portrait of Matilda"
+          />
+        </div>
         <Stack direction="col" spacing="M">
           <Stack direction="col" spacing="XS">
             <Label size="L">Display Name</Label>
